@@ -52,8 +52,10 @@ export default function Home() {
   return (
     <div className="flex w-full justify-center">
       <div className="w-3/5">
-        <Navbar></Navbar>
-        <div className="border-b border-gray-300 shadow-bottom">
+        <div className="fixed w-3/5 mx-auto top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm">
+          <Navbar />
+        </div>
+        <div className="pt-24 border-b border-gray-300 shadow-bottom">
           <div className="pt-10 flex w-full justify-center">
             <img
               src={profileImage}

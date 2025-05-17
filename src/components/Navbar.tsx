@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="w-full">
+    <div className="w-full z-50">
       <nav className="pt-4 shadow-bottom font-figtree w-full relative">
         <div className="w-full"> 
           <div className="flex w-full justify-between h-16">
