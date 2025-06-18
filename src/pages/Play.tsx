@@ -148,9 +148,9 @@ export default function Play() {
   };
 
   return (
-    <div className="min-h-screen">
-      <div className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm shadow-sm">
-        <div className="w-3/5 mx-auto">
+    <div className="min-h-screen bg-[#FFFFFF]">
+      <div className="bg-[#FFFFFF] fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm shadow-sm">
+        <div className="w-full mx-auto">
           <Navbar />
         </div>
       </div>
@@ -160,15 +160,15 @@ export default function Play() {
           <img
             src={Background}
             alt="Art gallery background"
-            className="blur-[2px] w-full h-full object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
 
-        <div className="relative pt-32 pb-20 px-4 md:px-8">
+        <div className="relative pt-24  px-4 md:px-8">
           <div className="text-center mb-10">
             <button
               onClick={shuffleArtwork}
-              className="px-6 py-2 bg-white/80 backdrop-blur-sm rounded-full font-figtree shadow-md hover:bg-white transition-colors"
+              className="px-6 py-2 bg-white/80 rounded-full font-figtree shadow-md hover:bg-white transition-colors"
             >
               Shuffle Gallery
             </button>

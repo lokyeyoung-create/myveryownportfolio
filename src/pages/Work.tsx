@@ -1,9 +1,9 @@
 import Navbar from "../components/Navbar";
 export default function Work() {
   return (
-    <div className="flex w-full justify-center">
-      <div className="w-3/5">
-        <div className="fixed w-3/5 mx-auto top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm">
+    <div className=" flex w-full justify-center bg-[#FFFFFF]">
+      <div className="bg-[#FFFFFF] w-3/5">
+        <div className="fixed w-full mx-auto top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm">
           <Navbar />
         </div>
         <div className="pt-32 p-8">

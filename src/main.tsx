@@ -5,7 +5,9 @@ import About from "./pages/About";
 import Play from "./pages/Play";
 import Work from "./pages/Work";
 import Home from "./pages/Home";
-import './index.css' 
+import "./index.css";
+import Snapper from "./pages/Projects/Snapper";
+import Vetted from "./pages/Projects/Vetted";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -15,6 +17,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/about" element={<About />} />
         <Route path="/play" element={<Play />} />
         <Route path="/work" element={<Work />} />
+        <Route path="/snapper" element={<Snapper />} />
+        <Route path="/vetted" element={<Vetted />} />
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
