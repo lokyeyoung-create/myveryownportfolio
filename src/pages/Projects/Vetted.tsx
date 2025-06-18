@@ -735,7 +735,7 @@ export default function Vetted() {
                   Next Project
                 </h2>
                 <a
-                  href="/projects/beathive"
+                  href="/beathive"
                   className="group inline-flex flex-col items-center"
                 >
                   <span className="text-xl font-medium text-gray-900 mb-2 group-hover:[#718170] transition-colors">

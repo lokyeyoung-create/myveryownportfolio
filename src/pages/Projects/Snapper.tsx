@@ -699,7 +699,7 @@ export default function Snapper() {
                   Next Project
                 </h2>
                 <a
-                  href="/projects/roadar"
+                  href="/roadar"
                   className="group inline-flex flex-col items-center"
                 >
                   <span className="text-xl font-medium text-gray-900 mb-2 group-hover:[#718170] transition-colors">

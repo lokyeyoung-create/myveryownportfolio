@@ -8,6 +8,9 @@ import Home from "./pages/Home";
 import "./index.css";
 import Snapper from "./pages/Projects/Snapper";
 import Vetted from "./pages/Projects/Vetted";
+import BeatHive from "./pages/Projects/Beathive";
+import Kindred from "./pages/Projects/Kindred";
+import Roadar from "./pages/Projects/Roadar";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -19,6 +22,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/work" element={<Work />} />
         <Route path="/snapper" element={<Snapper />} />
         <Route path="/vetted" element={<Vetted />} />
+        <Route path="/beathive" element={<BeatHive />} />
+        <Route path="/kindred" element={<Kindred />} />
+        <Route path="/roadar" element={<Roadar />} />
 
       </Routes>
     </BrowserRouter>
