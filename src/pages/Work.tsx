@@ -18,9 +18,8 @@ export default function Work() {
       role: "Software Designer",
       time: "August 2024 – Present",
       description: [
-        "Led branding for 2+ client projects, delivering logos, brand systems, and cohesive visual assets used in digital platforms. ",
+        "Designed branding for 2+ client projects, delivering logos, brand systems, and cohesive visual assets used in digital platforms. ",
         "Created high-fidelity wireframes and prototypes in Figma to translate client requirements into intuitive designs. ",
-        'Awarded "Most Valuable Player" (top 1 of 60+ members) for initiative and team leadership across client design sprint. ',
       ],
     },
     {
@@ -57,6 +56,15 @@ export default function Work() {
       description: [
         "Serve as community leader and resource for 1000+ residents, resolving issues and promoting student wellbeing. ",
         "Plan and organize monthly social and educational events to build community within the resident hall. ",
+      ],
+    },
+    {
+      company: "Northeastern University",
+      role: "Husky Ambassador",
+      time: "July 2024 – Present",
+      description: [
+        "Lead campus tours to groups of 30+ prospective students and parents.",
+        "Provided detailed information on Northeastern's academic programs, co-op opportunities, and campus life ",
       ],
     },
   ];

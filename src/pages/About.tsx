@@ -5,9 +5,9 @@ import PortraitEye from "../assets/images/Eyeball.svg";
 
 export default function About() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isReady, setIsReady] = useState(false); // Add ready state
-  const portraitRef = useRef(null);
-  const containerRef = useRef(null);
+  const [isReady, setIsReady] = useState(false);
+  const portraitRef = useRef<HTMLImageElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const eyePositions = {
     leftEye: { x: 38.6, y: 35.8, maxMove: 1.2 },
@@ -15,7 +15,7 @@ export default function About() {
   };
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       if (containerRef.current) {
         const containerRect = containerRef.current.getBoundingClientRect();
 
@@ -47,7 +47,11 @@ export default function About() {
     };
   }, []);
 
-  const calculateEyePosition = (baseX, baseY, maxMove) => {
+  const calculateEyePosition = (
+    baseX: number,
+    baseY: number,
+    maxMove: number
+  ) => {
     if (!portraitRef.current || !containerRef.current || !isReady)
       return { x: baseX, y: baseY };
 
@@ -91,16 +95,25 @@ export default function About() {
   );
 
   return (
-    <div className="flex w-full justify-center bg-[#FFFFFF]">
-      <div className="w-3/5 fixed top-0 mb-16">
+    <div className="flex w-full justify-center bg-[#FFFFFF] min-h-screen">
+      {/* RESPONSIVE CONTAINER
+          - px-4: Mobile padding (16px)
+          - sm:px-8: Small tablet padding (32px)
+          - md:px-16: Tablet padding (64px)
+          - lg:px-24: Laptop padding (96px)
+          - xl:w-3/5: Desktop width (your original)
+      */}
+      <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:w-3/5 xl:px-0">
+        {/* RESPONSIVE NAVBAR */}
         <div className="fixed w-full mx-auto top-0 left-0 right-0 z-50 bg-[#FFFFFF] backdrop-blur-sm">
           <Navbar />
         </div>
+
         <div
-          className="flex flex-row items-center mt-48 p-8"
+          className="flex flex-col lg:flex-row items-center lg:items-center mt-20 sm:mt-32 lg:mt-48 p-4 sm:p-6 lg:p-8"
           ref={containerRef}
         >
-          <div className="relative w-1/3">
+          <div className="relative w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/3 mb-8 lg:mb-0">
             <img
               src={PortraitImage}
               alt="Portrait"
@@ -135,13 +148,16 @@ export default function About() {
             )}
           </div>
 
-          <div className="ml-8 w-2/3">
-            <h1 className="font-figtree font-light text-3xl mb-4">ABOUT ME</h1>
-            <p className="font-figtree text-base">
+          <div className="lg:ml-8 w-full lg:w-2/3 text-center lg:text-left">
+            <h1 className="font-cormorant font-light text-2xl sm:text-3xl mb-4 lg:mb-4">
+              ABOUT ME
+            </h1>
+
+            <p className="font-figtree text-sm sm:text-base leading-relaxed">
               I'm Lok Ye, a second year Computer Science major at Northeastern
               University. I'm passionate about all things creative - whether it
               be designing and developing an app, painting, baking, crocheting,
-              and more. I love trying new restaurants and cafe's and spending
+              and more. I love trying new restaurants and cafes and spending
               time with my friends and family!
             </p>
           </div>
