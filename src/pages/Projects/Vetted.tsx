@@ -220,10 +220,11 @@ export default function Vetted() {
                     muted
                     loop
                     playsInline
-                    onMouseEnter={(e) => e.target.play()}
+                    onMouseEnter={(e) => (e.target as HTMLVideoElement).play()}
                     onMouseLeave={(e) => {
-                      e.target.pause();
-                      e.target.currentTime = 0;
+                      const video = e.target as HTMLVideoElement;
+                      video.pause();
+                      video.currentTime = 0;
                     }}
                   >
                     <source src={SearchPrototype} type="video/mp4" />
@@ -269,10 +270,11 @@ export default function Vetted() {
                     muted
                     loop
                     playsInline
-                    onMouseEnter={(e) => e.target.play()}
+                    onMouseEnter={(e) => (e.target as HTMLVideoElement).play()}
                     onMouseLeave={(e) => {
-                      e.target.pause();
-                      e.target.currentTime = 0;
+                      const video = e.target as HTMLVideoElement;
+                      video.pause();
+                      video.currentTime = 0;
                     }}
                   >
                     <source src={PetCreationPrototype} type="video/mp4" />
@@ -317,10 +319,11 @@ export default function Vetted() {
                     muted
                     loop
                     playsInline
-                    onMouseEnter={(e) => e.target.play()}
+                    onMouseEnter={(e) => (e.target as HTMLVideoElement).play()}
                     onMouseLeave={(e) => {
-                      e.target.pause();
-                      e.target.currentTime = 0;
+                      const video = e.target as HTMLVideoElement;
+                      video.pause();
+                      video.currentTime = 0;
                     }}
                   >
                     <source src={CareboardFlow} type="video/mp4" />
@@ -365,10 +368,11 @@ export default function Vetted() {
                     muted
                     loop
                     playsInline
-                    onMouseEnter={(e) => e.target.play()}
+                    onMouseEnter={(e) => (e.target as HTMLVideoElement).play()}
                     onMouseLeave={(e) => {
-                      e.target.pause();
-                      e.target.currentTime = 0;
+                      const video = e.target as HTMLVideoElement;
+                      video.pause();
+                      video.currentTime = 0;
                     }}
                   >
                     <source src={LoginFlow} type="video/mp4" />
@@ -436,11 +440,13 @@ export default function Vetted() {
                       bulletActiveClass: "swiper-pagination-bullet-active",
                     }}
                     className="rounded-xl logo-swiper"
-                    style={{
-                      "--swiper-navigation-color": "#626262",
-                      "--swiper-pagination-color": "#626262",
-                      "--swiper-navigation-size": "24px",
-                    }}
+                    style={
+                      {
+                        "--swiper-navigation-color": "#626262",
+                        "--swiper-pagination-color": "#626262",
+                        "--swiper-navigation-size": "24px",
+                      } as React.CSSProperties
+                    }
                   >
                     <SwiperSlide>
                       <div className="p-8">
@@ -561,11 +567,13 @@ export default function Vetted() {
                       bulletActiveClass: "swiper-pagination-bullet-active",
                     }}
                     className="rounded-xl logo-swiper"
-                    style={{
-                      "--swiper-navigation-color": "#626262",
-                      "--swiper-pagination-color": "#626262",
-                      "--swiper-navigation-size": "24px",
-                    }}
+                    style={
+                      {
+                        "--swiper-navigation-color": "#626262",
+                        "--swiper-pagination-color": "#626262",
+                        "--swiper-navigation-size": "24px",
+                      } as React.CSSProperties
+                    }
                   >
                     <SwiperSlide>
                       <div className="p-8 flex justify-center items-center">

@@ -7,7 +7,6 @@ export default function Work() {
       company: "State Street Corporation x Northeastern University",
       role: "Software Engineer, GEUDX Team",
       time: "January 2025 – Present",
-      location: "Boston, MA",
       description: [
         "Engineered a centralized KPI Insights Portal used by 30+ stakeholders, reducing manual reporting time by 95%. ",
         "Built automated pipelines in Databricks to ingest and transform 2000+ rows of data daily from 15+ sources. ",
@@ -18,7 +17,6 @@ export default function Work() {
       company: "Generate Product Development Studio",
       role: "Software Designer",
       time: "August 2024 – Present",
-      location: "Boston, MA",
       description: [
         "Led branding for 2+ client projects, delivering logos, brand systems, and cohesive visual assets used in digital platforms. ",
         "Created high-fidelity wireframes and prototypes in Figma to translate client requirements into intuitive designs. ",
@@ -29,7 +27,6 @@ export default function Work() {
       company: "Michelin Tires",
       role: "AI Studio Fellow",
       time: "August 2024 – January 2025",
-      location: "Remote",
       description: [
         "Engineered a chatbot to enhance user experience by delivering responses based on over 368,000 rows of geo-referenced safety data. ",
         "Designed and fine-tuned an NLP pipeline to parse complex user queries, improving model response accuracy and performance across a large-scale dataset. ",
@@ -39,7 +36,6 @@ export default function Work() {
       company: "CodePath Web Development",
       role: "Teaching Assistant",
       time: "July 2024 – January 2025",
-      location: "Remote",
       description: [
         "Provided technical support for HTML, CSS, and Javascript for 20+ students during labs, assignments, and office hours. ",
         "Facilitated technical understanding and community-building across weekly cohort breakout rooms. ",
@@ -49,7 +45,6 @@ export default function Work() {
       company: "Break Through Tech AI",
       role: "Machine Learning and Artificial Intelligence Fellow",
       time: "April 2024 – April 2025",
-      location: "Boston, MA",
       description: [
         "Selected from 3,000+ applicants for a 12-month program with MIT faculty, gaining expertise in deploying ML models. ",
         "Advanced algorithms and data-driven problem solving, while participating in career development events and networking. ",
@@ -59,7 +54,6 @@ export default function Work() {
       company: "Northeastern University",
       role: "Resident Assistant",
       time: "July 2024 – Present",
-      location: "Boston, MA",
       description: [
         "Serve as community leader and resource for 1000+ residents, resolving issues and promoting student wellbeing. ",
         "Plan and organize monthly social and educational events to build community within the resident hall. ",
@@ -90,7 +84,6 @@ export default function Work() {
           </p>
         </motion.div>
 
-        {/* Timeline */}
         <div className="relative">
           {workExperiences.map((work, index) => (
             <WorkItem
@@ -98,7 +91,6 @@ export default function Work() {
               company={work.company}
               role={work.role}
               time={work.time}
-              location={work.location}
               description={work.description}
               isLast={index === workExperiences.length - 1}
             />

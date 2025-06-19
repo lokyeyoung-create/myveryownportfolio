@@ -6,7 +6,7 @@ interface WorkProps {
   company: string;
   role: string;
   time: string;
-  description: string;
+  description: string[];
   isLast?: boolean;
 }
 
