@@ -10,8 +10,8 @@ export default function About() {
   const containerRef = useRef(null);
 
   const eyePositions = {
-    leftEye: { x: 38.6, y: 35.8, maxMove: 1.2 }, 
-    rightEye: { x: 58.1, y: 37.1, maxMove: 1.2 }, 
+    leftEye: { x: 38.6, y: 35.8, maxMove: 1.2 },
+    rightEye: { x: 58.1, y: 37.1, maxMove: 1.2 },
   };
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function About() {
 
   const calculateEyePosition = (baseX, baseY, maxMove) => {
     if (!portraitRef.current || !containerRef.current || !isReady)
-      return { x: baseX, y: baseY }; 
+      return { x: baseX, y: baseY };
 
     const portraitRect = portraitRef.current.getBoundingClientRect();
     const containerRect = containerRef.current.getBoundingClientRect();
@@ -139,8 +139,10 @@ export default function About() {
             <h1 className="font-figtree font-light text-3xl mb-4">ABOUT ME</h1>
             <p className="font-figtree text-base">
               I'm Lok Ye, a second year Computer Science major at Northeastern
-              University. I'm passionate about all things creative - whether it be 
-              designing and developing an app, or my hobbies of painting, baking, crocheting, and more. 
+              University. I'm passionate about all things creative - whether it
+              be designing and developing an app, painting, baking, crocheting,
+              and more. I love trying new restaurants and cafe's and spending
+              time with my friends and family!
             </p>
           </div>
         </div>
