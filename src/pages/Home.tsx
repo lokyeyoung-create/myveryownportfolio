@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import profileImage from "../assets/images/ProfileImage.svg";
+import profileImage from "../assets/images/Smile.jpeg";
 import Snapper from "../assets/images/Snapper.png";
 import Project from "../components/Project";
 import Beathive from "../assets/images/Beathive.png";
@@ -24,12 +24,17 @@ export default function Home() {
     year: string;
     alignRight?: boolean;
     detailUrl?: string;
-
   }[] = [
     {
       id: 1,
       image: Kindred,
-      tags: ["React Native", "MongoDB", "Typescript", "UI/UX Design", "Adobe Illustrator"],
+      tags: [
+        "React Native",
+        "MongoDB",
+        "Typescript",
+        "UI/UX Design",
+        "Adobe Illustrator",
+      ],
       name: "Kindred",
       description:
         "Kindred is a socialized to-do list app designed to be  the first productivity-focused social media platform. It helps you  achieve your goals while staying connected with close friends.",
@@ -67,9 +72,8 @@ export default function Home() {
       company: "Generate Product Development",
       year: "2024",
       alignRight: true,
-      detailUrl: "/snapper" 
+      detailUrl: "/snapper",
     },
-
     {
       id: 5,
       image: Roadar,
@@ -83,14 +87,54 @@ export default function Home() {
   ];
 
   return (
-    <div className=" flex w-full px-48  justify-center bg-[#FFFFFF]">
+    <div className="flex w-full px-4 sm:px-8 md:px-24 lg:px-40 xl:px-48 justify-center bg-[#FFFFFF]">
       <div className="w-full bg-[#FFFFFF]">
-        <div className="fixed w-full mx-auto top-0 left-0 right-0 z-5 backdrop-blur-sm">
+        <div className="fixed w-full mx-auto top-0 left-0 right-0 z-50 backdrop-blur-sm">
           <Navbar />
         </div>
-        <div className="border-b-[0.5px] border-black py-16 pt-20 mb-24">
+        <div className="border-b-[0.5px] border-black py-8 sm:py-12 md:py-16 pt-16 sm:pt-20 mb-12 sm:mb-16 md:mb-24">
           <div>
-            <div>
+            <div className="md:hidden">
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-center"
+              >
+                <img
+                  src={profileImage}
+                  alt="Profile"
+                  className="w-1/3 h-auto sm:w-2/5 sm:h-auto mx-auto border-[0.5px] border-t-0 p-3 pt-0 border-black rounded-b-full shadow-lg mb-6 mt-4 sm:mt-0"
+                />
+                <div className="flex flex-col items-center mb-4">
+                  <img
+                    src={IntroText}
+                    alt="Hi, I'm Lok Ye"
+                    className="w-4/5 max-w-s mb-2"
+                  />
+                  <img
+                    src={DesignerText}
+                    alt="DESIGNER"
+                    className="w-4/5 max-w-s"
+                  />
+                </div>
+                <div className="my-6">
+                  <img
+                    src={AndText}
+                    alt="&"
+                    className="w-1/4 sm:w-1/3 mx-auto"
+                  />
+                </div>
+                <div className="flex flex-col items-center">
+                  <img
+                    src={DeveloperText}
+                    alt="DEVELOPER"
+                    className="w-4/5 max-w-s mb-4"
+                  />
+                </div>
+              </motion.div>
+            </div>
+            <div className="hidden md:block">
               <motion.h2
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -103,15 +147,16 @@ export default function Home() {
                       alt="Hi, I'm Lok Ye"
                       className="w-3/5"
                     />
-                    <img src={DesignerText} alt="DESIGNER" className="w-3/5" />
+                    <img src={DesignerText} alt="DESIGNER" className="w-4/6" />
                   </div>
                   <img
                     src={profileImage}
                     alt="Profile"
-                    className="w-3/12 rounded-b-full shadow-lg"
+                    className="w-1/4 mt-4 border-[0.5px] border-t-0 p-3 pt-0 border-black rounded-b-full shadow-lg"
                   />
                 </div>
               </motion.h2>
+
               <motion.h2
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -120,37 +165,41 @@ export default function Home() {
                 <img
                   src={AndText}
                   alt="&"
-                  className="w-4/12 -mt-28 justify-self-center"
+                  className="w-1/4 -mt-44 md:-mt-20 lg:-mt-32 mb-16 md:mb-20 lg:mb-8 justify-self-center"
                 />
               </motion.h2>
-            </div>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="flex flex-row items-end justify-between -mt-24">
-                <img
-                  src={DesignAndDevelopSubtext}
-                  alt="Designing with Empathy, Developing with Purpose"
-                  className="w-40"
-                />
-                <img
-                  src={DeveloperText}
-                  alt="DEVELOPER"
-                  className="justify-self-end max-w-lg"
-                />
-              </div>
-            </motion.h2>
 
-            <div className="mt-8 text-center"></div>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <div className="flex flex-row items-end justify-between -mt-24">
+                  <img
+                    src={DesignAndDevelopSubtext}
+                    alt="Designing with Empathy, Developing with Purpose"
+                    className="w-1/6"
+                  />
+                  <img
+                    src={DeveloperText}
+                    alt="DEVELOPER"
+                    className="justify-self-end w-3/6"
+                  />
+                </div>
+              </motion.h2>
+            </div>
+
+            <div className="text-center"></div>
           </div>
         </div>
-        <div className="flex flex-row justify-between">
-          <h2 className="text-xl font-light font-figtree">DEVELOPMENT</h2>
-          <h2 className="text-xl font-light font-figtree">DESIGN</h2>
-        </div>
 
+        <div className="flex flex-row justify-between">
+
+          <h2 className="text-lg sm:text-xl font-light font-figtree">
+            DEVELOPMENT
+          </h2>
+          <h2 className="text-lg sm:text-xl font-light font-figtree">DESIGN</h2>
+        </div>
         <div className="w-full my-3 justify-center">
           {projects.map((project) => (
             <Project

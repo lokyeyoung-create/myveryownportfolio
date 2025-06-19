@@ -5,6 +5,7 @@ import PortraitEye from "../assets/images/Eyeball.svg";
 
 export default function About() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isReady, setIsReady] = useState(false); // Add ready state
   const portraitRef = useRef(null);
   const containerRef = useRef(null);
 
@@ -25,16 +26,30 @@ export default function About() {
       }
     };
 
+    const initializeComponent = () => {
+      if (portraitRef.current && containerRef.current) {
+        setIsReady(true);
+        const containerRect = containerRef.current.getBoundingClientRect();
+        setMousePosition({
+          x: containerRect.width / 2,
+          y: containerRect.height / 2,
+        });
+      }
+    };
+
+    const timeoutId = setTimeout(initializeComponent, 100);
+
     window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      clearTimeout(timeoutId);
     };
   }, []);
 
   const calculateEyePosition = (baseX, baseY, maxMove) => {
-    if (!portraitRef.current || !containerRef.current)
-      return { x: baseX, y: baseY };
+    if (!portraitRef.current || !containerRef.current || !isReady)
+      return { x: baseX, y: baseY }; 
 
     const portraitRect = portraitRef.current.getBoundingClientRect();
     const containerRect = containerRef.current.getBoundingClientRect();
@@ -89,31 +104,35 @@ export default function About() {
             <img
               src={PortraitImage}
               alt="Portrait"
-              className=" w-full"
+              className="w-full"
               ref={portraitRef}
             />
 
-            <img
-              src={PortraitEye}
-              alt="Left Eye"
-              className="absolute w-[4.2%]"
-              style={{
-                left: `${leftEyePosition.x}px`,
-                top: `${leftEyePosition.y}px`,
-                transform: "translate(-50%, -50%)",
-              }}
-            />
+            {isReady && (
+              <>
+                <img
+                  src={PortraitEye}
+                  alt="Left Eye"
+                  className="absolute w-[4.2%]"
+                  style={{
+                    left: `${leftEyePosition.x}px`,
+                    top: `${leftEyePosition.y}px`,
+                    transform: "translate(-50%, -50%)",
+                  }}
+                />
 
-            <img
-              src={PortraitEye}
-              alt="Right Eye"
-              className="absolute w-[4.2%]"
-              style={{
-                left: `${rightEyePosition.x}px`,
-                top: `${rightEyePosition.y}px`,
-                transform: "translate(-50%, -50%)",
-              }}
-            />
+                <img
+                  src={PortraitEye}
+                  alt="Right Eye"
+                  className="absolute w-[4.2%]"
+                  style={{
+                    left: `${rightEyePosition.x}px`,
+                    top: `${rightEyePosition.y}px`,
+                    transform: "translate(-50%, -50%)",
+                  }}
+                />
+              </>
+            )}
           </div>
 
           <div className="ml-8 w-2/3">
@@ -122,7 +141,6 @@ export default function About() {
               I'm Lok Ye, a second year Computer Science major at Northeastern
               University. I'm passionate about all things creative - whether it be 
               designing and developing an app, or my hobbies of painting, baking, crocheting, and more. 
-               
             </p>
           </div>
         </div>
