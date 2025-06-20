@@ -94,9 +94,6 @@ const WorkItem: React.FC<WorkProps> = ({
           >
             {description}
           </motion.p>
-
-          <div className="absolute top-4 right-4 w-2 h-2 bg-blue-200 rounded-full opacity-30" />
-          <div className="absolute bottom-4 right-6 w-1 h-1 bg-purple-200 rounded-full opacity-40" />
         </div>
       </motion.div>
     </div>
