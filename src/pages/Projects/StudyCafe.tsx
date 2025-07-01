@@ -1,9 +1,6 @@
-import HeadingImage from "../../assets/images/Roadar.png";
-import lofis from "../../assets/images/RoadarImages/Onboarding.svg";
-import hifis from "../../assets/images/RoadarImages/Jobs.svg";
-import hifis1 from "../../assets/images/RoadarImages/Map.svg";
-import hifis2 from "../../assets/images/RoadarImages/Request.svg";
-import hifis3 from "../../assets/images/RoadarImages/Profile.svg";
+import HeadingImage from "../../assets/images/StudyCafeImages/CoverImage.png";
+import hifis from "../../assets/images/StudyCafeImages/StudyCafeHifis.svg";
+import StudyCafeVideo from "../../assets/images/StudyCafeImages/CafeVideo-compressed.mp4";
 
 import Navbar from "../../components/Navbar";
 import { motion } from "framer-motion";
@@ -13,7 +10,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-export default function Roadar() {
+export default function StudyCafe() {
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: (i) => ({
@@ -64,42 +61,43 @@ export default function Roadar() {
                     <h3 className="text-sm uppercase tracking-wider text-[#626262] mb-2">
                       Company
                     </h3>
-                    <p className="text-gray-900">HackBeanpot</p>
+                    <p className="text-gray-900">Mobile App Development</p>
                   </div>
                   <div>
                     <h3 className="text-sm uppercase tracking-wider text-[#626262] mb-2">
                       Timeline
                     </h3>
-                    <p className="text-gray-900">24 Hour Hackathon</p>
+                    <p className="text-gray-900">May - June 2025</p>
                   </div>
                   <div>
                     <h3 className="text-sm uppercase tracking-wider text-[#626262] mb-2">
                       Role
                     </h3>
                     <p className="text-gray-900">
-                      Developer and UI/UX Designer
+                      Android Developer and UI/UX Designer
                     </p>
                   </div>
                   <div>
                     <h3 className="text-sm uppercase tracking-wider text-[#626262] mb-2">
                       Team
                     </h3>
-                    <p className="text-gray-900">
-                      Abhik Ray, Robert Palazzi, Job Vengalli
-                    </p>
+                    <p className="text-gray-900">Abhik Ray, Brian Liu</p>
                   </div>
-
                   <div>
                     <h3 className="text-sm uppercase tracking-wider text-[#626262] mb-2">
                       Tools
                     </h3>
                     <div className="flex flex-wrap gap-2 mt-2">
                       <span className="inline-block px-2.5 py-1 text-sm border-[0.5px] border-black font-figtree text-[#626262] rounded-full">
-                        React Native
+                        Kotlin
                       </span>
                       <span className="inline-block px-2.5 py-1 text-sm border-[0.5px] border-black font-figtree text-[#626262] rounded-full">
                         {" "}
-                        MongoDB
+                        Python
+                      </span>
+                      <span className="inline-block px-2.5 py-1 text-sm border-[0.5px] border-black font-figtree text-[#626262] rounded-full">
+                        {" "}
+                        Unit Testing
                       </span>
                       <span className="inline-block px-2.5 py-1 text-sm border-[0.5px] border-black font-figtree text-[#626262] rounded-full">
                         {" "}
@@ -116,16 +114,14 @@ export default function Roadar() {
                 variants={fadeIn}
               >
                 <h2 className="text-3xl font-semibold mb-6 text-gray-900">
-                  Crowdsourcing Roadside Assistance in an Uber-styled mobile app
-                  to both help mechanics and make our streets safer
+                  Discover New Cafes for Your Studying Purposes
                 </h2>
                 <div className="space-y-4 text-gray-700 mb-6 leading-relaxed">
                   <p>
-                    Roadar is an application my team and I built within 24 hours
-                    to try and crowdsource roadside assistance. We wanted to
-                    build a mobile app that would allow drivers to be able to
-                    request immediate, or scheduled assistance from mechanics in
-                    order to perform either routine or emergency fixes.
+                    StudyCafe is an app that allows you to discover cafes near
+                    you with amenities that you need. Whether you need a cafe
+                    for studying, conversing, or relaxing, StudyCafe provides
+                    the information you need to make the perfect choice.
                   </p>
                 </div>
                 <div>
@@ -133,7 +129,7 @@ export default function Roadar() {
                     GitHub
                   </h3>
                   <a
-                    href="https://github.com/abhikaboy/roadar"
+                    href="https://github.com/abhikaboy/MADStufyCafe"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-900 hover:text-blue-600 transition-colors underline flex items-center gap-2"
@@ -154,42 +150,96 @@ export default function Roadar() {
 
           <section className="mb-24">
             <motion.div
-              className="grid grid-cols-1 gap-16"
+              className="grid grid-cols-1 md:grid-cols-2 gap-16"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             >
               <motion.div custom={0} variants={fadeIn} className="space-y-4">
                 <h2 className="text-2xl font-semibold mb-4 text-gray-900">
-                  Features and Challenges{" "}
+                  Problem Statement
                 </h2>
-                <p className="font-semibold">Job Creation</p>
-                <p>
-                  Drivers can make requests depending on their service type. On
-                  the home page, drivers can select from a variety of options,
-                  input the job urgency, and select their budget.{" "}
-                </p>
-                <p className="font-semibold">Web Sockets</p>
-                <p>
-                  One of the biggest features of Roadar is the ability for
-                  mechanics to go 'online' and receive repair requests in real
-                  time. Similar to how Uber works, the mechanics would get a pop
-                  up in real time to accept or deny requests. We considered
-                  creating a microservice for our websockets, but ultimately
-                  figured out a method to have our http server and web socket
-                  connection listen in parallel. We also make use of MongoDB
-                  change streams to detect changes to the database and send it
-                  out to the appropriate clients.
-                </p>
-                <p className="font-semibold">Authentication</p>
-                <p>
-                  Another challenge was supporting Apple OAuth to support both
-                  types of accounts - drivers and mechanics. Eventually once we
-                  solidified how to pass around the user state to our app
-                  properly, we were successfully able to support both of our
-                  users properly.
+                <p className="text-gray-700 leading-relaxed">
+                  Students and remote workers want to explore and discover great
+                  study spots, but existing platforms don't help them identify
+                  cafes with the right study environment. Without information
+                  about WiFi quality, noise levels, power outlets, and workspace
+                  comfort, people resort to costly trial-and-error cafe hopping
+                  that limits their ability to find their perfect study havens.
                 </p>
               </motion.div>
+
+              <motion.div custom={1} variants={fadeIn} className="space-y-4">
+                <h2 className="text-2xl font-semibold mb-4 text-gray-900">
+                  The Solution
+                </h2>
+                <p>
+                  <li className="m-3">
+                    Rate Cafes: Users can create profiles with details like
+                    instruments, genres, and experience level.
+                  </li>
+                  <li className="m-3">
+                    ️Location Based Recommendations: Users will be recommended
+                    cafes near them, allowing easier discovery
+                  </li>
+                  <li className="m-3">
+                    Searching and Filtering: Tag filtering and cafe name and
+                    location searching
+                  </li>
+                  <li className="m-3">
+                    Bookmark Your Favorites: Bookmark cafes you love or want to
+                    try later. Create a personalized list of go-to cafes, and
+                    keep track of your progress.
+                  </li>
+                  <li className="m-3">
+                    Upload Photos: Add photos of the cafe interior, drinks,
+                    menus, and workspaces.
+                  </li>
+                </p>
+              </motion.div>
+            </motion.div>
+          </section>
+          <section className="mb-24">
+            <h2 className="text-3xl text-center font-semibold mb-3 text-gray-900">
+              Live Demo
+            </h2>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="space-y-8"
+            >
+              <div className="h-120 bg-[#866C6C] rounded-lg overflow-hidden mb-6 relative group flex items-center justify-center">
+                <video
+                  className="w-1/3 h-4/5 m-10 rounded-lg object-cover"
+                  muted
+                  loop
+                  playsInline
+                  onMouseEnter={(e) => (e.target as HTMLVideoElement).play()}
+                  onMouseLeave={(e) => {
+                    const video = e.target as HTMLVideoElement;
+                    video.pause();
+                    video.currentTime = 0;
+                  }}
+                >
+                  <source src={StudyCafeVideo} type="video/mp4" />
+                </video>
+                <div className="absolute top-4 right-4 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded-full flex items-center space-x-1 opacity-100 group-hover:opacity-0 transition-opacity duration-200">
+                  <span>Hover me!</span>
+                  <svg
+                    className="w-3 h-3"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10.293 15.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L11 13.586V3a1 1 0 1 0-2 0v10.586l-4.293-4.293a1 1 0 0 0-1.414 1.414l5 5z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
             </motion.div>
           </section>
           <section className="mb-24">
@@ -205,34 +255,9 @@ export default function Roadar() {
                   High Fidelity Wireframes
                 </h2>
               </div>
-              <p className="text-gray-700 mx-auto">Incoming Job Wireframes</p>
-              <div className="bg-gray-50 p-4 rounded-lg flex justify-center items-center ">
+              <div className="bg-gray-50 p-12 flex rounded-lg justify-center items-center ">
                 <img
                   src={hifis}
-                  alt="High Fidelity Wireframes"
-                  className=" w-full h-auto rounded-lg"
-                />
-              </div>
-              <p className="text-gray-700 mx-auto">Map Wireframes</p>
-              <div className="bg-gray-50 p-4 rounded-lg flex justify-center items-center ">
-                <img
-                  src={hifis1}
-                  alt="High Fidelity Wireframes"
-                  className="w-full h-auto rounded-lg"
-                />
-              </div>
-              <p className="text-gray-700 mx-auto">Home Page Wireframes</p>
-              <div className="bg-gray-50 p-4 rounded-lg flex justify-center items-center ">
-                <img
-                  src={hifis2}
-                  alt="High Fidelity Wireframes"
-                  className="w-full h-auto rounded-lg"
-                />
-              </div>
-              <p className="text-gray-700 mx-auto">Onboarding</p>
-              <div className="bg-gray-50 p-4 rounded-lg flex justify-center items-center ">
-                <img
-                  src={hifis3}
                   alt="High Fidelity Wireframes"
                   className="w-full h-auto rounded-lg"
                 />
@@ -241,7 +266,7 @@ export default function Roadar() {
           </section>
 
           <section className="mt-32">
-            <div className="border-t border-gray-200 pt-16">
+            <div className="border-t border-gray-50 pt-16">
               <motion.div
                 className="text-center"
                 initial={{ opacity: 0, y: 20 }}
@@ -253,14 +278,14 @@ export default function Roadar() {
                   Next Project
                 </h2>
                 <a
-                  href="/kindred"
+                  href="/beathive"
                   className="group inline-flex flex-col items-center"
                 >
                   <span className="text-xl font-medium text-gray-900 mb-2 group-hover:[#718170] transition-colors">
-                    Kindred
+                    BeatHive
                   </span>
                   <span className="text-gray-600 mb-4 group-hover:[#718170] transition-colors">
-                    Mobile App Development, Mobile Design
+                    Web Development, Web Design
                   </span>
                   <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center group-hover:[#718170] transition-colors">
                     <svg

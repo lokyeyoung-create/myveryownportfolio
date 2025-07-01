@@ -11,6 +11,7 @@ import Vetted from "./pages/Projects/Vetted";
 import BeatHive from "./pages/Projects/Beathive";
 import Kindred from "./pages/Projects/Kindred";
 import Roadar from "./pages/Projects/Roadar";
+import StudyCafe from "./pages/Projects/StudyCafe";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/beathive" element={<BeatHive />} />
         <Route path="/kindred" element={<Kindred />} />
         <Route path="/roadar" element={<Roadar />} />
+        <Route path="/studycafe" element={<StudyCafe />} />
 
       </Routes>
     </BrowserRouter>

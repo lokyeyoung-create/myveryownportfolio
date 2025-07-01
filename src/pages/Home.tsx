@@ -6,6 +6,8 @@ import Beathive from "../assets/images/Beathive.png";
 import Kindred from "../assets/images/KindredCover.png";
 import Vetted from "../assets/images/Vetted.png";
 import Roadar from "../assets/images/Roadar.png";
+import StudyCafe from "../assets/images/StudyCafeImages/CoverImage.png";
+
 import DesignerText from "../assets/images/DESIGNER.svg";
 import DeveloperText from "../assets/images/DEVELOPER.svg";
 import DesignAndDevelopSubtext from "../assets/images/DescriptionText.svg";
@@ -31,9 +33,11 @@ export default function Home() {
       tags: [
         "React Native",
         "MongoDB",
-        "Typescript",
         "UI/UX Design",
         "Adobe Illustrator",
+        "Expo",
+        "Go",
+        "Figma"
       ],
       name: "Kindred",
       description:
@@ -44,7 +48,7 @@ export default function Home() {
     {
       id: 2,
       image: Vetted,
-      tags: ["Figma", "UI/UX Design", "Adobe Illustrator", "Graphic Design"],
+      tags: ["Figma", "UI/UX Design", "Adobe Illustrator", "Graphic Design", "Prototyping"],
       name: "Vetted",
       description:
         "An app that connects pet parents with pet providers, for specialized care with credentialed veterinary professionals.",
@@ -54,8 +58,19 @@ export default function Home() {
     },
     {
       id: 3,
+      image: StudyCafe,
+      tags: ["Kotlin", "Python", "Unit Testing", "Figma"],
+      name: "StudyCafe",
+      description:
+        "StudyCafe is an app that allows you to discover cafes near you with amenities that you need. Whether you need a cafe for studying, conversing, or relaxing, StudyCafe provides the information you need to make the perfect choice.",
+      company: "Mobile App Development Class",
+      year: "2025",
+      alignRight: false,
+    },
+    {
+      id: 4,
       image: Beathive,
-      tags: ["React", "Figma", "Supabase", "Kubernetes"],
+      tags: ["React", "Tailwind", "Figma"],
       name: "Beathive",
       description:
         "A platform for musicians to create and attend jam sessions to make music and find friends.",
@@ -63,9 +78,9 @@ export default function Home() {
       year: "2025",
     },
     {
-      id: 4,
+      id: 5,
       image: Snapper,
-      tags: ["Figma", "UI/UX Design", "Adobe Illustrator", "Graphic Design"],
+      tags: ["Figma", "UI/UX Design", "Adobe Illustrator", "Graphic Design", "Prototyping"],
       name: "Snapper",
       description:
         "A gamified scuba diving social media app for scuba divers to connect with other users, tag fish, and post their dives.",
@@ -75,7 +90,7 @@ export default function Home() {
       detailUrl: "/snapper",
     },
     {
-      id: 5,
+      id: 6,
       image: Roadar,
       tags: ["React Native", "MongoDB", "Figma"],
       name: "Roadar",

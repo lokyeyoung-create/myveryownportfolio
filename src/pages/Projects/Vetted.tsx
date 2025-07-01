@@ -116,8 +116,15 @@ export default function Vetted() {
                         Figma
                       </span>
                       <span className="inline-block px-2.5 py-1 text-sm border-[0.5px] border-black font-figtree text-[#626262] rounded-full">
+                        UI/UX Design
+                      </span>
+                      <span className="inline-block px-2.5 py-1 text-sm border-[0.5px] border-black font-figtree text-[#626262] rounded-full">
                         {" "}
                         Adobe Illustrator
+                      </span>
+                      <span className="inline-block px-2.5 py-1 text-sm border-[0.5px] border-black font-figtree text-[#626262] rounded-full">
+                        {" "}
+                        Graphic Design
                       </span>
                       <span className="inline-block px-2.5 py-1 text-sm border-[0.5px] border-black font-figtree text-[#626262] rounded-full">
                         {" "}
@@ -662,7 +669,7 @@ export default function Vetted() {
                   Low Fidelity and Mid Fidelity Wireframes
                 </h2>
               </div>
-              <div className="bg-gray-50 p-4 flex justify-center items-center ">
+              <div className="bg-gray-50 p-4 flex justify-center items-center rounded-lg">
                 <img
                   src={lofis}
                   alt="Low and Mid Fidelity Wireframes"
@@ -743,14 +750,14 @@ export default function Vetted() {
                   Next Project
                 </h2>
                 <a
-                  href="/beathive"
+                  href="/studycafe"
                   className="group inline-flex flex-col items-center"
                 >
                   <span className="text-xl font-medium text-gray-900 mb-2 group-hover:[#718170] transition-colors">
-                    BeatHive
+                    StudyCafe
                   </span>
                   <span className="text-gray-600 mb-4 group-hover:[#718170] transition-colors">
-                    Web Development, Web Design
+                    Android Development, Mobile Design
                   </span>
                   <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center group-hover:[#718170] transition-colors">
                     <svg

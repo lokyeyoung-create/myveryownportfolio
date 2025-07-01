@@ -111,7 +111,15 @@ export default function Snapper() {
                       </span>
                       <span className="inline-block px-2.5 py-1 text-sm border-[0.5px] border-black font-figtree text-[#626262] rounded-full">
                         {" "}
+                        UI/UX Design
+                      </span>
+                      <span className="inline-block px-2.5 py-1 text-sm border-[0.5px] border-black font-figtree text-[#626262] rounded-full">
+                        {" "}
                         Adobe Illustrator
+                      </span>
+                      <span className="inline-block px-2.5 py-1 text-sm border-[0.5px] border-black font-figtree text-[#626262] rounded-full">
+                        {" "}
+                        Graphic Design
                       </span>
                       <span className="inline-block px-2.5 py-1 text-sm border-[0.5px] border-black font-figtree text-[#626262] rounded-full">
                         {" "}
