@@ -102,12 +102,22 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex w-full px-4 sm:px-8 md:px-24 lg:px-40 xl:px-48 justify-center bg-[#FFFFFF]">
-      <div className="w-full bg-[#FFFFFF]">
-        <div className="fixed w-full mx-auto top-0 left-0 right-0 z-50 backdrop-blur-sm">
+    <div className="flex w-full max-w-screen-2xl mx-auto px-4 sm:px-8 md:px-24 lg:px-40 xl:px-48 justify-center bg-white">
+      <div className="w-full bg-white">
+        <div 
+          className="fixed w-full mx-auto top-0 left-0 right-0 z-50"
+          style={{ 
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            backgroundColor: 'rgba(255, 255, 255, 0.8)'
+          }}
+        >
           <Navbar />
         </div>
-        <div className="border-b-[0.5px] border-black py-8 sm:py-12 md:py-16 pt-16 sm:pt-20 mb-12 sm:mb-16 md:mb-24">
+        <div 
+          className="py-8 sm:py-12 md:py-16 pt-16 sm:pt-20 mb-12 sm:mb-16 md:mb-24"
+          style={{ borderBottom: '0.5px solid black' }}
+        >
           <div>
             <div className="md:hidden">
               <motion.div
@@ -119,18 +129,26 @@ export default function Home() {
                 <img
                   src={profileImage}
                   alt="Profile"
-                  className="w-1/3 h-auto sm:w-2/5 sm:h-auto mx-auto border-[0.5px] border-t-0 p-3 pt-0 border-black rounded-b-full shadow-lg mb-6 mt-4 sm:mt-0"
+                  className="w-1/3 h-auto sm:w-2/5 sm:h-auto mx-auto p-3 pt-0 border-black shadow-lg mb-6 mt-4 sm:mt-0"
+                  style={{ 
+                    border: '0.5px solid black',
+                    borderTop: '0',
+                    borderBottomLeftRadius: '9999px',
+                    borderBottomRightRadius: '9999px'
+                  }}
                 />
                 <div className="flex flex-col items-center mb-4">
                   <img
                     src={IntroText}
                     alt="Hi, I'm Lok Ye"
-                    className="w-4/5 max-w-s mb-2"
+                    className="w-4/5 mb-2"
+                    style={{ maxWidth: '20rem' }}
                   />
                   <img
                     src={DesignerText}
                     alt="DESIGNER"
-                    className="w-4/5 max-w-s"
+                    className="w-4/5"
+                    style={{ maxWidth: '20rem' }}
                   />
                 </div>
                 <div className="my-6">
@@ -144,11 +162,13 @@ export default function Home() {
                   <img
                     src={DeveloperText}
                     alt="DEVELOPER"
-                    className="w-4/5 max-w-s mb-4"
+                    className="w-4/5 mb-4"
+                    style={{ maxWidth: '20rem' }}
                   />
                 </div>
               </motion.div>
             </div>
+
             <div className="hidden md:block">
               <motion.h2
                 initial={{ opacity: 0, y: -20 }}
@@ -167,7 +187,13 @@ export default function Home() {
                   <img
                     src={profileImage}
                     alt="Profile"
-                    className="w-1/4 mt-4 border-[0.5px] border-t-0 p-3 pt-0 border-black rounded-b-full shadow-lg"
+                    className="w-1/4 mt-4 p-3 pt-0 border-black shadow-lg"
+                    style={{ 
+                      border: '0.5px solid black',
+                      borderTop: '0',
+                      borderBottomLeftRadius: '9999px',
+                      borderBottomRightRadius: '9999px'
+                    }}
                   />
                 </div>
               </motion.h2>
@@ -176,11 +202,12 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex justify-center"
               >
                 <img
                   src={AndText}
                   alt="&"
-                  className="w-1/4 -mt-44 md:-mt-20 lg:-mt-32 mb-16 md:mb-20 lg:mb-8 justify-self-center"
+                  className="w-1/4 -mt-44 md:-mt-20 lg:-mt-32 mb-16 md:mb-20 lg:mb-8"
                 />
               </motion.h2>
 
@@ -189,7 +216,9 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <div className="flex flex-row items-end justify-between -mt-24">
+                <div 
+                  className="flex flex-row items-end justify-between -mt-24"
+                >
                   <img
                     src={DesignAndDevelopSubtext}
                     alt="Designing with Empathy, Developing with Purpose"
@@ -198,23 +227,29 @@ export default function Home() {
                   <img
                     src={DeveloperText}
                     alt="DEVELOPER"
-                    className="justify-self-end w-3/6"
+                    className="w-3/6"
                   />
                 </div>
               </motion.h2>
             </div>
-
-            <div className="text-center"></div>
           </div>
         </div>
 
         <div className="flex flex-row justify-between">
-
-          <h2 className="text-lg sm:text-xl font-light font-figtree">
+          <h2 
+            className="text-lg sm:text-xl font-light"
+            style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
+          >
             DEVELOPMENT
           </h2>
-          <h2 className="text-lg sm:text-xl font-light font-figtree">DESIGN</h2>
+          <h2 
+            className="text-lg sm:text-xl font-light"
+            style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
+          >
+            DESIGN
+          </h2>
         </div>
+        
         <div className="w-full my-3 justify-center">
           {projects.map((project) => (
             <Project
