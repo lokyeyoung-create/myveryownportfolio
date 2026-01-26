@@ -324,6 +324,7 @@ export default function Home() {
                   company={project.company}
                   year={project.year}
                   alignRight={project.alignRight}
+                  detailUrl={project.detailUrl}
                 />
               ))
             )}
