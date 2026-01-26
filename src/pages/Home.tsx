@@ -1,12 +1,15 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import profileImage from "../assets/images/Smile.jpeg";
 import Snapper from "../assets/images/Snapper.png";
 import Project from "../components/Project";
+import ProjectSkeleton from "../components/ProjectSkeleton";
 import Beathive from "../assets/images/Beathive.png";
 import Kindred from "../assets/images/KindredCover.png";
 import Vetted from "../assets/images/Vetted.png";
 import Roadar from "../assets/images/Roadar.png";
 import StudyCafe from "../assets/images/StudyCafeImages/CoverImage.png";
+import Willow from "../assets/images/WillowCRMImages/WillowBanner.png";
 
 import DesignerText from "../assets/images/DESIGNER.svg";
 import DeveloperText from "../assets/images/DEVELOPER.svg";
@@ -14,8 +17,15 @@ import DesignAndDevelopSubtext from "../assets/images/DescriptionText.svg";
 import IntroText from "../assets/images/IntroText.svg";
 import AndText from "../assets/images/&.svg";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
   const projects: {
     id: number;
     image: string;
@@ -37,7 +47,7 @@ export default function Home() {
         "Adobe Illustrator",
         "Expo",
         "Go",
-        "Figma"
+        "Figma",
       ],
       name: "Kindred",
       description:
@@ -47,8 +57,35 @@ export default function Home() {
     },
     {
       id: 2,
+      image: Willow,
+      tags: [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "Express",
+        "WebSocket",
+        "Redis",
+        "Tailwind",
+        "Cypress",
+      ],
+      name: "Willow CRM",
+      description:
+        "A comprehensive HIPAA-compliant healthcare management platform for patients, doctors, and operations teams. Features real-time messaging, appointment scheduling, medications management, and role-based access control.",
+      company: "Full-Stack Development Project",
+      year: "2025",
+      alignRight: false,
+      detailUrl: "/willow",
+    },
+    {
+      id: 3,
       image: Vetted,
-      tags: ["Figma", "UI/UX Design", "Adobe Illustrator", "Graphic Design", "Prototyping"],
+      tags: [
+        "Figma",
+        "UI/UX Design",
+        "Adobe Illustrator",
+        "Graphic Design",
+        "Prototyping",
+      ],
       name: "Vetted",
       description:
         "An app that connects pet parents with pet providers, for specialized care with credentialed veterinary professionals.",
@@ -57,7 +94,7 @@ export default function Home() {
       alignRight: true,
     },
     {
-      id: 3,
+      id: 4,
       image: StudyCafe,
       tags: ["Kotlin", "Python", "Unit Testing", "Figma"],
       name: "StudyCafe",
@@ -68,7 +105,7 @@ export default function Home() {
       alignRight: false,
     },
     {
-      id: 4,
+      id: 5,
       image: Beathive,
       tags: ["React", "Tailwind", "Figma"],
       name: "Beathive",
@@ -78,9 +115,15 @@ export default function Home() {
       year: "2025",
     },
     {
-      id: 5,
+      id: 6,
       image: Snapper,
-      tags: ["Figma", "UI/UX Design", "Adobe Illustrator", "Graphic Design", "Prototyping"],
+      tags: [
+        "Figma",
+        "UI/UX Design",
+        "Adobe Illustrator",
+        "Graphic Design",
+        "Prototyping",
+      ],
       name: "Snapper",
       description:
         "A gamified scuba diving social media app for scuba divers to connect with other users, tag fish, and post their dives.",
@@ -90,7 +133,7 @@ export default function Home() {
       detailUrl: "/snapper",
     },
     {
-      id: 6,
+      id: 7,
       image: Roadar,
       tags: ["React Native", "MongoDB", "Figma"],
       name: "Roadar",
@@ -102,169 +145,193 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex w-full max-w-screen-2xl mx-auto px-4 sm:px-8 md:px-24 lg:px-40 xl:px-48 justify-center bg-white">
-      <div className="w-full bg-white">
-        <div 
-          className="fixed w-full mx-auto top-0 left-0 right-0 z-50"
-          style={{ 
-            backdropFilter: 'blur(8px)',
-            WebkitBackdropFilter: 'blur(8px)',
-            backgroundColor: 'rgba(255, 255, 255, 0.8)'
-          }}
-        >
-          <Navbar />
-        </div>
-        <div 
-          className="py-8 sm:py-12 md:py-16 pt-16 sm:pt-20 mb-12 sm:mb-16 md:mb-24"
-          style={{ borderBottom: '0.5px solid black' }}
-        >
-          <div>
-            <div className="md:hidden">
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-center"
-              >
-                <img
-                  src={profileImage}
-                  alt="Profile"
-                  className="w-1/3 h-auto sm:w-2/5 sm:h-auto mx-auto p-3 pt-0 border-black shadow-lg mb-6 mt-4 sm:mt-0"
-                  style={{ 
-                    border: '0.5px solid black',
-                    borderTop: '0',
-                    borderBottomLeftRadius: '9999px',
-                    borderBottomRightRadius: '9999px'
-                  }}
-                />
-                <div className="flex flex-col items-center mb-4">
-                  <img
-                    src={IntroText}
-                    alt="Hi, I'm Lok Ye"
-                    className="w-4/5 mb-2"
-                    style={{ maxWidth: '20rem' }}
-                  />
-                  <img
-                    src={DesignerText}
-                    alt="DESIGNER"
-                    className="w-4/5"
-                    style={{ maxWidth: '20rem' }}
-                  />
-                </div>
-                <div className="my-6">
-                  <img
-                    src={AndText}
-                    alt="&"
-                    className="w-1/4 sm:w-1/3 mx-auto"
-                  />
-                </div>
-                <div className="flex flex-col items-center">
-                  <img
-                    src={DeveloperText}
-                    alt="DEVELOPER"
-                    className="w-4/5 mb-4"
-                    style={{ maxWidth: '20rem' }}
-                  />
-                </div>
-              </motion.div>
-            </div>
-
-            <div className="hidden md:block">
-              <motion.h2
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <div className="flex flex-row justify-between">
-                  <div className="pt-12 flex flex-col justify-self-end">
-                    <img
-                      src={IntroText}
-                      alt="Hi, I'm Lok Ye"
-                      className="w-3/5"
-                    />
-                    <img src={DesignerText} alt="DESIGNER" className="w-4/6" />
-                  </div>
+    <div>
+      <div className="flex w-full max-w-screen-2xl mx-auto px-4 sm:px-8 md:px-24 lg:px-40 xl:px-48 justify-center bg-white">
+        <div className="w-full bg-white">
+          <div
+            className="fixed w-full mx-auto top-0 left-0 right-0 z-50"
+            style={{
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+            }}
+          >
+            <Navbar />
+          </div>
+          <div
+            className="py-8 sm:py-12 md:py-16 pt-16 sm:pt-20 mb-12 sm:mb-16 md:mb-24"
+            style={{ borderBottom: "0.5px solid black" }}
+          >
+            <div>
+              <div className="md:hidden">
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-center"
+                >
                   <img
                     src={profileImage}
                     alt="Profile"
-                    className="w-1/4 mt-4 p-3 pt-0 border-black shadow-lg"
-                    style={{ 
-                      border: '0.5px solid black',
-                      borderTop: '0',
-                      borderBottomLeftRadius: '9999px',
-                      borderBottomRightRadius: '9999px'
+                    className="w-1/3 h-auto sm:w-2/5 sm:h-auto mx-auto p-3 pt-0 border-black shadow-lg mb-6 mt-4 sm:mt-0"
+                    style={{
+                      border: "0.5px solid black",
+                      borderTop: "0",
+                      borderBottomLeftRadius: "9999px",
+                      borderBottomRightRadius: "9999px",
                     }}
                   />
-                </div>
-              </motion.h2>
+                  <div className="flex flex-col items-center mb-4">
+                    <img
+                      src={IntroText}
+                      alt="Hi, I'm Lok Ye"
+                      className="w-4/5 mb-2"
+                      style={{ maxWidth: "20rem" }}
+                    />
+                    <img
+                      src={DesignerText}
+                      alt="DESIGNER"
+                      className="w-4/5"
+                      style={{ maxWidth: "20rem" }}
+                    />
+                  </div>
+                  <div className="my-6">
+                    <img
+                      src={AndText}
+                      alt="&"
+                      className="w-1/4 sm:w-1/3 mx-auto"
+                    />
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img
+                      src={DeveloperText}
+                      alt="DEVELOPER"
+                      className="w-4/5 mb-4"
+                      style={{ maxWidth: "20rem" }}
+                    />
+                  </div>
+                </motion.div>
+              </div>
 
-              <motion.h2
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex justify-center"
-              >
-                <img
-                  src={AndText}
-                  alt="&"
-                  className="w-1/4 -mt-44 md:-mt-20 lg:-mt-32 mb-16 md:mb-20 lg:mb-8"
-                />
-              </motion.h2>
+              <div className="hidden md:block">
+                <motion.h2
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  <div className="flex flex-row justify-between">
+                    <div className="pt-12 flex flex-col justify-self-end">
+                      <img
+                        src={IntroText}
+                        alt="Hi, I'm Lok Ye"
+                        className="w-3/5"
+                      />
+                      <img
+                        src={DesignerText}
+                        alt="DESIGNER"
+                        className="w-4/6"
+                      />
+                    </div>
+                    <img
+                      src={profileImage}
+                      alt="Profile"
+                      className="w-1/4 mt-4 p-3 pt-0 border-black shadow-lg"
+                      style={{
+                        border: "0.5px solid black",
+                        borderTop: "0",
+                        borderBottomLeftRadius: "9999px",
+                        borderBottomRightRadius: "9999px",
+                      }}
+                    />
+                  </div>
+                </motion.h2>
 
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <div 
-                  className="flex flex-row items-end justify-between -mt-24"
+                <motion.h2
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="flex justify-center"
                 >
                   <img
-                    src={DesignAndDevelopSubtext}
-                    alt="Designing with Empathy, Developing with Purpose"
-                    className="w-1/6"
+                    src={AndText}
+                    alt="&"
+                    className="w-1/4 -mt-44 md:-mt-20 lg:-mt-32 mb-16 md:mb-20 lg:mb-8"
                   />
-                  <img
-                    src={DeveloperText}
-                    alt="DEVELOPER"
-                    className="w-3/6"
-                  />
-                </div>
-              </motion.h2>
+                </motion.h2>
+
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  <div className="flex flex-row items-end justify-between -mt-24">
+                    <img
+                      src={DesignAndDevelopSubtext}
+                      alt="Designing with Empathy, Developing with Purpose"
+                      className="w-1/6"
+                    />
+                    <img
+                      src={DeveloperText}
+                      alt="DEVELOPER"
+                      className="w-3/6"
+                    />
+                  </div>
+                </motion.h2>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="flex flex-row justify-between">
-          <h2 
-            className="text-lg sm:text-xl font-light"
-            style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
-          >
-            DEVELOPMENT
-          </h2>
-          <h2 
-            className="text-lg sm:text-xl font-light"
-            style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
-          >
-            DESIGN
-          </h2>
-        </div>
-        
-        <div className="w-full my-3 justify-center">
-          {projects.map((project) => (
-            <Project
-              key={project.id}
-              image={project.image}
-              tags={project.tags}
-              name={project.name}
-              description={project.description}
-              company={project.company}
-              year={project.year}
-              alignRight={project.alignRight}
-            />
-          ))}
+          <div className="flex flex-row justify-between">
+            <h2
+              className="text-lg sm:text-xl font-light"
+              style={{
+                fontFamily:
+                  'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+              }}
+            >
+              DEVELOPMENT
+            </h2>
+            <h2
+              className="text-lg sm:text-xl font-light"
+              style={{
+                fontFamily:
+                  'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+              }}
+            >
+              DESIGN
+            </h2>
+          </div>
+
+          <div className="w-full my-3 justify-center">
+            {isLoading ? (
+              <>
+                <ProjectSkeleton />
+                <ProjectSkeleton />
+                <ProjectSkeleton alignRight />
+                <ProjectSkeleton />
+                <ProjectSkeleton />
+                <ProjectSkeleton alignRight />
+                <ProjectSkeleton />
+              </>
+            ) : (
+              projects.map((project) => (
+                <Project
+                  key={project.id}
+                  image={project.image}
+                  tags={project.tags}
+                  name={project.name}
+                  description={project.description}
+                  company={project.company}
+                  year={project.year}
+                  alignRight={project.alignRight}
+                />
+              ))
+            )}
+          </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

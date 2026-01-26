@@ -12,6 +12,7 @@ import BeatHive from "./pages/Projects/Beathive";
 import Kindred from "./pages/Projects/Kindred";
 import Roadar from "./pages/Projects/Roadar";
 import StudyCafe from "./pages/Projects/StudyCafe";
+import Willow from "./pages/Projects/Willow";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -27,8 +28,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/kindred" element={<Kindred />} />
         <Route path="/roadar" element={<Roadar />} />
         <Route path="/studycafe" element={<StudyCafe />} />
-
+        <Route path="/willow" element={<Willow />} />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

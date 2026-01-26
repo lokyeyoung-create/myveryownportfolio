@@ -6,9 +6,17 @@ import hifis from "../../assets/images/SnapperImages/Hifis1.svg";
 import mockup from "../../assets/images/KindredImages/Group 1.svg";
 
 import Navbar from "../../components/Navbar";
+import DetailPageSkeleton from "../../components/DetailPageSkeleton";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Kindred() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: (i) => ({
@@ -29,14 +37,21 @@ export default function Kindred() {
           <Navbar />
         </div>
 
-        <div className="mt-20 w-full flex items-center max-h-[60vh] overflow-hidden relative">
-          <img
-            src={HeadingImage}
-            alt="Header"
-            className="w-full object-cover object-center h-full"
-          />
-          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent"></div>
-        </div>
+        {isLoading ? (
+          <>
+            <div className="mt-20 w-full flex items-center max-h-[60vh] overflow-hidden relative bg-gray-200 animate-pulse" style={{ height: "400px" }} />
+            <DetailPageSkeleton />
+          </>
+        ) : (
+          <>
+            <div className="mt-20 w-full flex items-center max-h-[60vh] overflow-hidden relative">
+              <img
+                src={HeadingImage}
+                alt="Header"
+                className="w-full object-cover object-center h-full"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent"></div>
+            </div>
 
         <div className="bg-blue-100 border-l-4 text-blue-700 p-8 mt-4">
           <div className="max-w-5xl mx-auto px-4 md:px-8">
@@ -274,6 +289,8 @@ export default function Kindred() {
             </div>
           </section>
         </div>
+          </>
+        )}
       </div>
     </div>
   );

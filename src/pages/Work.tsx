@@ -1,16 +1,31 @@
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import WorkItem from "../components/WorkItem";
+import Skeleton from "../components/Skeleton";
+import { useState, useEffect } from "react";
+
 export default function Work() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
   const workExperiences = [
     {
-      company: "State Street Corporation x Northeastern University",
-      role: "Software Engineer, GEUDX Team",
-      time: "January 2025 – Present",
+      company: "Microsoft",
+      role: "Software Engineering Intern, Azure Arc",
+      time: "January 2026 – Present",
+      description: [""],
+    },
+    {
+      company: "State Street Corporation",
+      role: "Software Engineering Intern, GEUDX Team",
+      time: "January 2025 – July 2025",
       description: [
-        "Engineered a centralized KPI Insights Portal used by 30+ stakeholders, reducing manual reporting time by 95%. ",
-        "Built automated pipelines in Databricks to ingest and transform 2000+ rows of data daily from 15+ sources. ",
-        "Created real-time data visualizations using over one million rows of data that supported C-level decision-making. ",
+        "Engineered scalable ETL pipelines in Databricks, leveraging SQL and workflow automation to process 500k+ daily rows from 15+ sources, improving data reliability and system efficiency.",
+        "Designed and implemented 2 dashboards in a centralized KPI Insights Portal for 30+ SMEs and C-level executives, automating dashboard creation and cutting manual reporting by 95%.",
       ],
     },
     {
@@ -93,18 +108,53 @@ export default function Work() {
         </motion.div>
 
         <div className="relative">
-          {workExperiences.map((work, index) => (
-            <WorkItem
-              key={index}
-              company={work.company}
-              role={work.role}
-              time={work.time}
-              description={work.description}
-              isLast={index === workExperiences.length - 1}
-            />
-          ))}
+          {isLoading ? (
+            <>
+              {[...Array(7)].map((_, index) => (
+                <div key={index} className="mb-12 p-6 rounded-lg">
+                  <Skeleton
+                    variant="text"
+                    width="50%"
+                    height={24}
+                    className="mb-3"
+                  />
+                  <Skeleton
+                    variant="text"
+                    width="35%"
+                    height={16}
+                    className="mb-3"
+                  />
+                  <Skeleton
+                    variant="text"
+                    width="25%"
+                    height={14}
+                    className="mb-6"
+                  />
+                  <Skeleton
+                    variant="text"
+                    width="100%"
+                    height={14}
+                    className="mb-2"
+                  />
+                  <Skeleton variant="text" width="100%" height={14} />
+                </div>
+              ))}
+            </>
+          ) : (
+            workExperiences.map((work, index) => (
+              <WorkItem
+                key={index}
+                company={work.company}
+                role={work.role}
+                time={work.time}
+                description={work.description}
+                isLast={index === workExperiences.length - 1}
+              />
+            ))
+          )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

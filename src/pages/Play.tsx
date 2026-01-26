@@ -1,19 +1,21 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import Background from "../assets/images/ArtBackground.png";
-import Image1 from "../assets/images/Portfolio Artworks/Group 8224.svg";
-import Image2 from "../assets/images/Portfolio Artworks/Group 8225.svg";
-import Image3 from "../assets/images/Portfolio Artworks/Group 8226.svg";
-import Image4 from "../assets/images/Portfolio Artworks/Group 8227.svg";
-import Image5 from "../assets/images/Portfolio Artworks/Group 8228.svg";
-import Image6 from "../assets/images/Portfolio Artworks/Group 8229.svg";
-import Image7 from "../assets/images/Portfolio Artworks/Group 8230.svg";
-import Image8 from "../assets/images/Portfolio Artworks/Group 8231.svg";
-import Image9 from "../assets/images/Portfolio Artworks/Group 8232.svg";
-import Image10 from "../assets/images/Portfolio Artworks/Group 8233.svg";
-import Image11 from "../assets/images/Portfolio Artworks/Group 8234.svg";
-import Image12 from "../assets/images/Portfolio Artworks/Group 8235.svg";
-import Image13 from "../assets/images/Portfolio Artworks/Group 8236.svg";
+import Image1 from "../assets/images/Portfolio Artworks/Group 8224.png";
+import Image2 from "../assets/images/Portfolio Artworks/Group 8225.png";
+import Image3 from "../assets/images/Portfolio Artworks/Group 8226.png";
+import Image4 from "../assets/images/Portfolio Artworks/Group 8227.png";
+import Image5 from "../assets/images/Portfolio Artworks/Group 8228.png";
+import Image6 from "../assets/images/Portfolio Artworks/Group 8229.png";
+import Image7 from "../assets/images/Portfolio Artworks/Group 8230.png";
+import Image8 from "../assets/images/Portfolio Artworks/Group 8231.png";
+import Image9 from "../assets/images/Portfolio Artworks/Group 8232.png";
+import Image10 from "../assets/images/Portfolio Artworks/Group 8233.png";
+import Image11 from "../assets/images/Portfolio Artworks/Group 8234.png";
+import Image12 from "../assets/images/Portfolio Artworks/Group 8235.png";
+import Image13 from "../assets/images/Portfolio Artworks/Group 8236.png";
 import { useEffect, useState } from "react";
+import Skeleton from "../components/Skeleton";
 
 interface Artwork {
   id: number;
@@ -77,7 +79,7 @@ const artworkData: Artwork[] = [
     id: 10,
     image: Image10,
     description:
-      "A mixed media artwork with soft pastel and digital art that aims to show the dystopian nature of glorified, popular, sightwseeing locations ",
+      "A mixed media artwork with soft pastel and digital art that aims to show the dystopian nature of glorified, popular, sightseeing locations ",
   },
   {
     id: 11,
@@ -99,11 +101,13 @@ const artworkData: Artwork[] = [
 
 export default function Play() {
   const [shuffledArtwork, setShuffledArtwork] = useState<Artwork[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const rowConfig = [4, 5, 4];
 
   const shuffleArtwork = () => {
     const newOrder = [...artworkData].sort(() => Math.random() - 0.5);
     setShuffledArtwork(newOrder);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -175,31 +179,56 @@ export default function Play() {
           </div>
 
           <div className="max-w-5xl mx-auto">
-            {getRowsOfArtwork().map((row, rowIndex) => (
-              <div
-                key={`row-${rowIndex}`}
-                className={`flex justify-center w-full mx-auto ${
-                  rowIndex === 1 ? "max-w-3xl" : "max-w-2xl"
-                }`}
-              >
-                <div className="flex items-center mb-1 gap-1">
-                  {row.map((artwork) => (
-                    <div
-                      key={artwork.id}
-                      className="relative px-1 cursor-pointer"
-                      onClick={() => openPopup(artwork)}
-                    >
-                      {" "}
-                      <img
-                        src={artwork.image}
-                        alt={`Artwork ${artwork.id}`}
-                        className="w-full hover:rotate-2 hover:scale-105"
-                      />
+            {isLoading ? (
+              <div className="space-y-2">
+                {[...Array(3)].map((_, rowIndex) => (
+                  <div
+                    key={`skeleton-row-${rowIndex}`}
+                    className={`flex justify-center w-full mx-auto ${
+                      rowIndex === 1 ? "max-w-3xl" : "max-w-2xl"
+                    }`}
+                  >
+                    <div className="flex items-center mb-1 gap-1 w-full">
+                      {[...Array(rowIndex === 1 ? 5 : 4)].map((_, idx) => (
+                        <div key={idx} className="flex-1 px-1">
+                          <Skeleton
+                            variant="rectangular"
+                            height={150}
+                            className="rounded-lg"
+                          />
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            ) : (
+              getRowsOfArtwork().map((row, rowIndex) => (
+                <div
+                  key={`row-${rowIndex}`}
+                  className={`flex justify-center w-full mx-auto ${
+                    rowIndex === 1 ? "max-w-3xl" : "max-w-2xl"
+                  }`}
+                >
+                  <div className="flex items-center mb-1 gap-1">
+                    {row.map((artwork) => (
+                      <div
+                        key={artwork.id}
+                        className="relative px-1 cursor-pointer"
+                        onClick={() => openPopup(artwork)}
+                      >
+                        {" "}
+                        <img
+                          src={artwork.image}
+                          alt={`Artwork ${artwork.id}`}
+                          className="w-full hover:rotate-2 hover:scale-105"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))
+            )}
           </div>
           {selectedArtwork && (
             <div
@@ -227,6 +256,7 @@ export default function Play() {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

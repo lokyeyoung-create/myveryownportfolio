@@ -6,14 +6,22 @@ import hifis2 from "../../assets/images/BeathiveImages/Hifis2.svg";
 import hifis3 from "../../assets/images/BeathiveImages/Hifis3.svg";
 
 import Navbar from "../../components/Navbar";
+import DetailPageSkeleton from "../../components/DetailPageSkeleton";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { useState, useEffect } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export default function BeatHive() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: (i) => ({
@@ -34,14 +42,21 @@ export default function BeatHive() {
           <Navbar />
         </div>
 
-        <div className="mt-20 w-full flex items-center max-h-[60vh] overflow-hidden relative">
-          <img
-            src={HeadingImage}
-            alt="Header"
-            className="w-full object-cover object-center h-full"
-          />
-          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent"></div>
-        </div>
+        {isLoading ? (
+          <>
+            <div className="mt-20 w-full flex items-center max-h-[60vh] overflow-hidden relative bg-gray-200 animate-pulse" style={{ height: "400px" }} />
+            <DetailPageSkeleton />
+          </>
+        ) : (
+          <>
+            <div className="mt-20 w-full flex items-center max-h-[60vh] overflow-hidden relative">
+              <img
+                src={HeadingImage}
+                alt="Header"
+                className="w-full object-cover object-center h-full"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent"></div>
+            </div>
 
         <div className="max-w-5xl mx-auto px-4 md:px-8 py-16">
           <section className="mb-24">
@@ -299,7 +314,9 @@ export default function BeatHive() {
             </div>
           </section>
         </div>
+          </>
+        )}
       </div>
     </div>
   );
-}
+} 
